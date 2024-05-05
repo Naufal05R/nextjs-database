@@ -31,12 +31,13 @@ export default function AddProduct({
 
   const [images, setImages] = useState<string[]>([]);
   const [name, setName] = useState("");
+  const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("electronics");
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log({ name, category, images, description });
+    console.log({ name, category, images, description, price });
   };
 
   return (
@@ -74,6 +75,16 @@ export default function AddProduct({
                 </SelectContent>
               </Select>
             </div>
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="price">Price</Label>
+            <Input
+              value={price}
+              onChange={(e) => setPrice(Number(e.target.value))}
+              id="price"
+              type="number"
+              placeholder="Price"
+            />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="description">Description</Label>
