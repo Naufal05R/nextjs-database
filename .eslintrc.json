@@ -1,3 +1,27 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "@next/next/no-img-element": "off",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ],
+    "import/order": [
+      1,
+      {
+        "newlines-between": "always",
+        "groups": [
+          ["builtin"],
+          "sibling",
+          "parent",
+          "external",
+          "internal",
+          "index"
+        ]
+      }
+    ]
+  }
 }
