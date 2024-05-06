@@ -8,10 +8,9 @@ export function cn(...inputs: ClassValue[]) {
 
 type SearchParams = {
   name?: string;
-  price?: string;
+  minRating?: string;
   category?: string;
-  search?: string;
-  color?: string[] | string;
+  page?: number;
 };
 
 export function modifySearchParams(
