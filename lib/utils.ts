@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 
 type SearchParams = {
   name?: string;
-  minRating?: string;
+  minPrice?: string;
   category?: string;
   page?: number;
 };
