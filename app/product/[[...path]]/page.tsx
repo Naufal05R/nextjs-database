@@ -4,6 +4,8 @@ import Review from "@/components/product/Review";
 import AddProduct from "@/components/product/AddProduct";
 import DeleteProduct from "@/components/delete/DeleteProduct";
 
+export const revalidate = 1;
+
 export default function Page({ params }: { params: { path: string[] } }) {
   const method = params.path[0];
   const id = params.path[1];
