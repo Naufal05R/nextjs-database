@@ -14,21 +14,27 @@ datasource db {
 }
 
 model Product {
-  id          Int    @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   name        String
   description String
   price       Float
   category    String
-}
-
-model Review {
-  id      Int    @id @default(autoincrement())
-  name    String
-  rating  Int
-  content String
+  images      Image[]
+  reviews     Review[]
 }
 
 model Image {
-  id  Int    @id @default(autoincrement())
-  url String
+  id        Int     @id @default(autoincrement())
+  url       String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId Int
+}
+
+model Review {
+  id        Int     @id @default(autoincrement())
+  name      String
+  rating    Int
+  content   String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId Int
 }
