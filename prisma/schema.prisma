@@ -14,11 +14,21 @@ datasource db {
 }
 
 model Product {
-
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  price       Float
+  category    String
 }
+
 model Review {
-
+  id      Int    @id @default(autoincrement())
+  name    String
+  rating  Int
+  content String
 }
-model Image {
 
+model Image {
+  id  Int    @id @default(autoincrement())
+  url String
 }
