@@ -23,6 +23,10 @@ export default async function Page({ params }: { params: { path: string[] } }) {
 
   const product = await getProductById(parseInt(id));
 
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+  
   return (
     <div className="pt-20 grid md:grid-cols-2 gap-8 max-w-6xl mx-auto py-12 px-4">
       <ProductView />
