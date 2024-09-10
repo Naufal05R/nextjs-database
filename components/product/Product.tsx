@@ -4,6 +4,10 @@ import Stars from "@/components/product/Stars";
 import ImageDisplay from "@/components/product/ImageDisplay";
 
 export default function ProductView({ product }: { product: Product }) {
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
   return (
     <div className="grid gap-6">
       <ImageDisplay />
