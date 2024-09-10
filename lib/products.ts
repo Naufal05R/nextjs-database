@@ -9,10 +9,10 @@ interface CreateProductInput {
   category: string;
 }
 
-export async function createProduct(input: CreateProductInput) {
+export async function createProduct(product: CreateProductInput) {
   const newProduct = await prisma.product.create({
     data: {
-      ...input,
+      ...product,
       images: {
         create: []
       }
