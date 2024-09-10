@@ -1,6 +1,5 @@
 "use server";
 
-// import our generated Prisma Client
 import { prisma } from "@/lib/prisma";
 
 interface CreateProductInput {
@@ -11,5 +10,9 @@ interface CreateProductInput {
 }
 
 export async function createProduct(input: CreateProductInput) {
-  // TODO: create a new Product in the database
+  const newProduct = await prisma.product.create({
+    data: input,
+  });
+
+  return newProduct;
 }
