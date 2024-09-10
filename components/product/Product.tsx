@@ -3,7 +3,7 @@ import { Product } from "@prisma/client";
 import Stars from "@/components/product/Stars";
 import ImageDisplay from "@/components/product/ImageDisplay";
 
-export default function Product({ product }: { product: Product }) {
+export default function ProductView({ product }: { product: Product }) {
   return (
     <div className="grid gap-6">
       <ImageDisplay />

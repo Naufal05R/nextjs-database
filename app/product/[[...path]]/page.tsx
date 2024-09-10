@@ -1,5 +1,5 @@
 import AddReview from "@/components/product/AddReview";
-import Product from "@/components/product/Product";
+import ProductView from "@/components/product/Product";
 import Review from "@/components/product/Review";
 import AddProduct from "@/components/product/AddProduct";
 import DeleteProduct from "@/components/delete/DeleteProduct";
@@ -22,7 +22,7 @@ export default function Page({ params }: { params: { path: string[] } }) {
 
   return (
     <div className="pt-20 grid md:grid-cols-2 gap-8 max-w-6xl mx-auto py-12 px-4">
-      <Product />
+      <ProductView />
       <div className="flex flex-col gap-y-5">
         <span className="text-2xl font-bold h-fit">Customer Reviews</span>
         <div className="grid gap-5">
