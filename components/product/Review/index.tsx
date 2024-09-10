@@ -1,9 +1,11 @@
 import Stars from "../Stars";
 import { Card, CardContent } from "../../ui/card";
 
+import { Review } from "@prisma/client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-export default function ReviewView() {
+export default function ReviewView({ review }: { review: Review }) {
   return (
     <Card>
       <CardContent className="grid gap-4 p-4">
