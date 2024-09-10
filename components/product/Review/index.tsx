@@ -6,10 +6,9 @@ import { Review } from "@prisma/client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function ReviewView({ review }: { review: Review }) {
-  const initials = review.name
-    .split(" ")
-    .map((name) => name[0])
-    .join("");
+  const splittedName = review.name.split(" ");
+  const initials = splittedName.map((name) => name[0]).join("");
+  const firstName = splittedName[0];
 
   return (
     <Card>
