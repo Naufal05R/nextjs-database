@@ -3,6 +3,8 @@ import { Product } from "@prisma/client";
 import Stars from "@/components/product/Stars";
 import ImageDisplay from "@/components/product/ImageDisplay";
 
+interface ProductViewProps {}
+
 export default function ProductView({ product }: { product: Product }) {
   const { name, description, price } = product;
 
