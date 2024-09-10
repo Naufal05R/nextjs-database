@@ -27,3 +27,7 @@ export async function createProduct(product: CreateProductInput) {
     throw new Error("Error creating product");
   }
 }
+
+export async function getProductById() {
+  // read a Product from the database
+}
