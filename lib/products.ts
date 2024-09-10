@@ -11,14 +11,19 @@ interface CreateProductInput {
 }
 
 export async function createProduct(product: CreateProductInput) {
-  const newProduct = await prisma.product.create({
-    data: {
-      ...product,
-      images: {
-        create: product.images?.map((url) => ({ url })),
+  try {
+    const newProduct = await prisma.product.create({
+      data: {
+        ...product,
+        images: {
+          create: product.images?.map((url) => ({ url })),
+        },
       },
-    },
-  });
+    });
 
-  return newProduct;
+    return newProduct;
+  } catch (error) {
+    console.error("Error creating product:", error);
+    throw new Error("Error creating product");
+  }
 }
