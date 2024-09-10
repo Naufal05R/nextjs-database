@@ -26,8 +26,7 @@ export default function ReviewView({ review }: { review: Review }) {
           </div>
         </div>
         <p>
-          I absolutely love this t-shirt! The quality is fantastic and the
-          design is so unique. Its quickly become one of my favorite pieces.
+          {review.content}
         </p>
       </CardContent>
     </Card>
