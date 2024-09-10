@@ -1,9 +1,12 @@
-import { Product } from "@prisma/client";
+import { Image, Product, Review } from "@prisma/client";
 
 import Stars from "@/components/product/Stars";
 import ImageDisplay from "@/components/product/ImageDisplay";
 
-interface ProductViewProps extends Product {}
+interface ProductViewProps extends Product {
+  images: Image[]
+  reviews: Review[]
+}
 
 export default function ProductView({ product }: { product: ProductViewProps }) {
   const { name, description, price } = product;
