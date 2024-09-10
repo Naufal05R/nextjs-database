@@ -10,6 +10,6 @@ interface CreateProductInput {
   category: string;
 }
 
-export async function createProduct() {
+export async function createProduct(input: CreateProductInput) {
   // TODO: create a new Product in the database
 }
