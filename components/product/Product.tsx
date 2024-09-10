@@ -5,7 +5,7 @@ import ImageDisplay from "@/components/product/ImageDisplay";
 
 interface ProductViewProps extends Product {}
 
-export default function ProductView({ product }: { product: Product }) {
+export default function ProductView({ product }: { product: ProductViewProps }) {
   const { name, description, price } = product;
 
   if (!product) {
