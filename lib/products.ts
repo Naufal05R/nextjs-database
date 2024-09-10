@@ -32,6 +32,10 @@ export async function getProductById(id: number) {
   try {
     const product = await prisma.product.findUnique({
       where: { id },
+      include: {
+        images: true,
+        reviews: true,
+      }
     });
 
     return product;
