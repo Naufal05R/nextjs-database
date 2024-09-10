@@ -29,5 +29,7 @@ export async function createProduct(product: CreateProductInput) {
 }
 
 export async function getProductById(id: number) {
-  // read a Product from the database
+  const product = await prisma.product.findUnique({
+    where: { id },
+  });
 }
