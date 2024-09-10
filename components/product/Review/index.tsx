@@ -17,7 +17,7 @@ export default function ReviewView({ review }: { review: Review }) {
         <div className="flex items-center gap-4">
           <Avatar>
             <AvatarImage alt="@jaredpalmer" src="/placeholder-avatar.jpg" />
-            <AvatarFallback>JP</AvatarFallback>
+            <AvatarFallback>{initials}</AvatarFallback>
           </Avatar>
           <div>
             <h3 className="font-semibold">Jared Palmer</h3>
