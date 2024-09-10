@@ -25,6 +25,8 @@ export default function ProductView({
   );
   const averageScore = Math.floor(totalScore / product.reviews.length);
 
+  const imageUrls = product.images.map(({ url }) => url);
+
   return (
     <div className="grid gap-6">
       <ImageDisplay />
