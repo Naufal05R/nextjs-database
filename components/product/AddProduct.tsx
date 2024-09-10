@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { createProduct } from "@/lib/products";
 
 export const revalidate = 1;
 
@@ -39,7 +40,7 @@ export default function AddProduct({
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log({ name, category, images, description, price });
+    await createProduct({ name, category, description, price });
   };
 
   return (
