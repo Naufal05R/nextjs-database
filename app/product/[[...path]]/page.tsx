@@ -33,10 +33,9 @@ export default async function Page({ params }: { params: { path: string[] } }) {
       <div className="flex flex-col gap-y-5">
         <span className="text-2xl font-bold h-fit">Customer Reviews</span>
         <div className="grid gap-5">
-          <Review />
-          <Review />
-          <Review />
-          <Review />
+          {product.reviews.map((review) => (
+            <Review key={review.id} review={review} />
+          ))}
         </div>
       </div>
       <div className="md:col-span-2">
