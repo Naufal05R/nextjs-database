@@ -26,10 +26,10 @@ export default async function Page({ params }: { params: { path: string[] } }) {
   if (!product) {
     return <div>Product not found</div>;
   }
-  
+
   return (
     <div className="pt-20 grid md:grid-cols-2 gap-8 max-w-6xl mx-auto py-12 px-4">
-      <ProductView />
+      <ProductView product={product} />
       <div className="flex flex-col gap-y-5">
         <span className="text-2xl font-bold h-fit">Customer Reviews</span>
         <div className="grid gap-5">
