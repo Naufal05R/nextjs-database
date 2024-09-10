@@ -3,7 +3,7 @@ import { Image, Product, Review } from "@prisma/client";
 import Stars from "@/components/product/Stars";
 import ImageDisplay from "@/components/product/ImageDisplay";
 
-interface ProductViewProps extends Product {
+export interface ProductViewProps extends Product {
   images: Image[]
   reviews: Review[]
 }
