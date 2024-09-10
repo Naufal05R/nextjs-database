@@ -15,8 +15,8 @@ export async function createProduct(product: CreateProductInput) {
     data: {
       ...product,
       images: {
-        create: []
-      }
+        create: product.images?.map((url) => ({ url })),
+      },
     },
   });
 
