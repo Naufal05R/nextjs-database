@@ -19,6 +19,11 @@ export default function ProductView({
     return <div>Product not found</div>;
   }
 
+  const totalScore = product.reviews.reduce(
+    (acc, review) => acc + review.rating,
+    0
+  );
+
   return (
     <div className="grid gap-6">
       <ImageDisplay />
