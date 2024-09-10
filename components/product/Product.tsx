@@ -26,17 +26,16 @@ export default function ProductView({
   const averageScore = Math.floor(totalScore / product.reviews.length);
 
   const imageUrls = product.images.map(({ url }) => url);
-
   return (
     <div className="grid gap-6">
-      <ImageDisplay />
+      <ImageDisplay images={imageUrls} />
       <div className="grid gap-2">
         <h1 className="text-3xl font-bold">{name}</h1>
         <p className="text-gray-500 dark:text-gray-400">{description}</p>
         <div className="flex items-center gap-4">
           <span className="text-4xl font-bold">${price}</span>
           <div className="flex items-center gap-0.5">
-            <Stars rating={4} />
+            <Stars rating={averageScore} />
           </div>
         </div>
       </div>
