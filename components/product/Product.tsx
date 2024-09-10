@@ -4,6 +4,8 @@ import Stars from "@/components/product/Stars";
 import ImageDisplay from "@/components/product/ImageDisplay";
 
 export default function ProductView({ product }: { product: Product }) {
+  const { name, description, price } = product;
+  
   if (!product) {
     return <div>Product not found</div>;
   }
