@@ -3,7 +3,7 @@ import { Card, CardContent } from "../../ui/card";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-export default function Review() {
+export default function ReviewView() {
   return (
     <Card>
       <CardContent className="grid gap-4 p-4">

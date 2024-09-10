@@ -1,6 +1,6 @@
 import AddReview from "@/components/product/AddReview";
 import ProductView from "@/components/product/Product";
-import Review from "@/components/product/Review";
+import ReviewView from "@/components/product/Review";
 import AddProduct from "@/components/product/AddProduct";
 import DeleteProduct from "@/components/delete/DeleteProduct";
 import { getProductById } from "@/lib/products";
@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { path: string[] } }) {
         <span className="text-2xl font-bold h-fit">Customer Reviews</span>
         <div className="grid gap-5">
           {product.reviews.map((review) => (
-            <Review key={review.id} review={review} />
+            <ReviewView key={review.id} review={review} />
           ))}
         </div>
       </div>
