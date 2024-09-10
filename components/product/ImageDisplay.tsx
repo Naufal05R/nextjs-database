@@ -28,27 +28,15 @@ export default function ImageDisplay({ images }: { images: string[] }) {
           </svg>
         </CarouselPrevious>
         <CarouselContent>
-          <CarouselItem>
-            <img
-              src="https://dummyimage.com/600x520/000/fff"
-              alt="product"
-              className="w-full h-full object-cover"
-            />
-          </CarouselItem>
-          <CarouselItem>
-            <img
-              src="https://dummyimage.com/600x520/000/fff"
-              alt="product"
-              className="w-full h-full object-cover"
-            />
-          </CarouselItem>
-          <CarouselItem>
-            <img
-              src="https://dummyimage.com/600x520/000/fff"
-              alt="product"
-              className="w-full h-full object-cover"
-            />
-          </CarouselItem>
+          {images.map((image, index) => (
+            <CarouselItem key={index}>
+              <img
+                src={image}
+                alt="product"
+                className="w-full h-full object-cover"
+              />
+            </CarouselItem>
+          ))}
         </CarouselContent>
         <CarouselNext className="absolute top-1/2 right-0 transform -translate-y-1/2">
           <svg
