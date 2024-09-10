@@ -23,6 +23,7 @@ export default function ProductView({
     (acc, review) => acc + review.rating,
     0
   );
+  const averageScore = Math.floor(totalScore / product.reviews.length);
 
   return (
     <div className="grid gap-6">
