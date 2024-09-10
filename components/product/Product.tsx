@@ -4,11 +4,15 @@ import Stars from "@/components/product/Stars";
 import ImageDisplay from "@/components/product/ImageDisplay";
 
 export interface ProductViewProps extends Product {
-  images: Image[]
-  reviews: Review[]
+  images: Image[];
+  reviews: Review[];
 }
 
-export default function ProductView({ product }: { product: ProductViewProps }) {
+export default function ProductView({
+  product,
+}: {
+  product: ProductViewProps;
+}) {
   const { name, description, price } = product;
 
   if (!product) {
