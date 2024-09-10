@@ -40,7 +40,11 @@ export default function AddProduct({
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    await createProduct({ name, category, description, price });
+    try {
+      await createProduct({ name, category, description, price });
+    } catch (error) {
+      console.error("Error creating product:", error);
+    }
   };
 
   return (
