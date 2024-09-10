@@ -28,6 +28,6 @@ export async function createProduct(product: CreateProductInput) {
   }
 }
 
-export async function getProductById() {
+export async function getProductById(id: number) {
   // read a Product from the database
 }
