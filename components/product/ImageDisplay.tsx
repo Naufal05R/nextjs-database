@@ -7,7 +7,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export default function ImageDisplay() {
+export default function ImageDisplay({ images }: { images: string[] }) {
   return (
     <div className="relative w-full">
       <Carousel className="h-fit">
