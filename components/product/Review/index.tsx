@@ -21,7 +21,7 @@ export default function ReviewView({ review }: { review: Review }) {
           <div>
             <h3 className="font-semibold">{review.name}</h3>
             <div className="flex items-center gap-0.5">
-              <Stars rating={4} />
+              <Stars rating={review.rating} />
             </div>
           </div>
         </div>
