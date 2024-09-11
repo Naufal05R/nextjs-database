@@ -13,6 +13,8 @@ interface CreateProductInput {
   images?: string[];
 }
 
+const PRODUCTS_PER_PAGE = 5;
+
 async function _getProductById(id: number) {
   try {
     const product = await prisma.product.findUnique({
@@ -35,15 +37,15 @@ export const getProductById = cache(_getProductById, ["getProductById"], {
   revalidate: 60,
 });
 
-export async function getProducts() {
+export async function getProducts({ page = 1 }) {
   try {
     const allProducts = await prisma.product.findMany({
       include: {
         images: true,
         reviews: true,
       },
-      skip: 0,
-      take: 10,
+      skip: (page - 1) * PRODUCTS_PER_PAGE,
+      take: PRODUCTS_PER_PAGE,
     });
 
     const products = allProducts.map((product) => {
