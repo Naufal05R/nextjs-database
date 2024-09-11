@@ -2,7 +2,7 @@ import ProductResult from "@/components/search/ProductResult";
 import SearchFilters from "@/components/search/SearchFilters";
 import { getProducts } from "@/lib/actions/products";
 
-export default async function Component() {
+export default async function Page() {
   const products = await getProducts();
 
   return (
