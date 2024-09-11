@@ -30,7 +30,9 @@ export default function DeleteProduct({ id }: { id: string }) {
           </div>
         </div>
         <div className="flex justify-center gap-4">
-          <Button variant="destructive">Confirm Delete</Button>
+          <Button onClick={handleDelete} variant="destructive">
+            Confirm Delete
+          </Button>
           <Button variant="outline">Cancel</Button>
         </div>
       </div>
