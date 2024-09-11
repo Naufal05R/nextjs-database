@@ -2,7 +2,7 @@ import { Image, Product, Review } from "@prisma/client";
 
 import Stars from "@/components/product/Stars";
 import ImageDisplay from "@/components/product/ImageDisplay";
-import { formatPrice } from "@/lib/utils";
+import { calculateScore, formatPrice } from "@/lib/utils";
 
 export interface ProductViewProps extends Product {
   images: Image[];
@@ -24,7 +24,7 @@ export default function ProductView({
     (acc, review) => acc + review.rating,
     0
   );
-  const averageScore = Math.floor(totalScore / product.reviews.length);
+  const averageScore = calculateScore(product.reviews, "rating").average;
 
   const imageUrls = product.images.map(({ url }) => url);
   return (
