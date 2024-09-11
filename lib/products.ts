@@ -46,7 +46,23 @@ export async function getProductById(id: number) {
 
 export async function updateProduct(id: number, product: CreateProductInput) {
   try {
-    // todo: implement the updateProduct server action
+    const updatedProduct = await prisma.product.update({
+      where: {
+        id,
+      },
+      data: {
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        category: product.category,
+        images: {
+          deleteMany: {},
+          create: product.images?.map((url) => ({ url })),
+        },
+      },
+    });
+
+    return updatedProduct;
   } catch (error) {
     return null;
   }
