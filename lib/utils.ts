@@ -42,9 +42,9 @@ export function formatPrice(
   }).format(value);
 }
 
-export function calculateScore(
-  itemsList: Array<Record<string, number | string>>,
-  itemKey: string
+export function calculateScore<T extends Record<string, number | string>>(
+  itemsList: Array<T>,
+  itemKey: keyof T
 ) {
   const calculated = itemsList.reduce(
     (acc, item) => acc + Number(item[itemKey]),
