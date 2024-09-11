@@ -2,7 +2,7 @@
 
 import ImageSelect from "./ImageSelect";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { PlusIcon } from "lucide-react";
 import { Image, Product, Review } from "@prisma/client";
@@ -53,8 +53,8 @@ export default function AddProduct({
     product?.images.map(({ url }) => url) || []
   );
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     try {
       if (edit && product) {
         const updatedProduct = await updateProduct(product.id, {
