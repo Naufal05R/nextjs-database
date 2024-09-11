@@ -47,11 +47,9 @@ export function calculateScore(
   itemKey: string
 ) {
   const calculated = itemsList.reduce((acc, item) => acc + item[itemKey], 0);
-  const total = Math.floor(calculated);
-  const average = Math.floor(calculated / itemsList.length);
 
   return {
-    total,
-    average,
+    total: Math.floor(calculated),
+    average: Math.floor(calculated / itemsList.length),
   };
 }
