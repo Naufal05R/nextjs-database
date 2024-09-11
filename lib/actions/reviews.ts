@@ -1,5 +1,7 @@
 "use server";
 
+import { revalidateTag } from "next/cache";
+
 import { prisma } from "@/lib/prisma";
 
 interface CreateReviewInput {
@@ -24,6 +26,7 @@ export async function createReview(review: CreateReviewInput) {
       },
     });
 
+    revalidateTag("Product");
     return newReview;
   } catch (error) {
     console.error("Error creating review: ", error);
