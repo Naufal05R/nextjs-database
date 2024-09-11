@@ -45,11 +45,11 @@ export function formatPrice(
 export function calculateScore<T extends Record<string, number | string>>(
   itemsList: Array<T>,
   itemKey: keyof T,
-  rounded?: boolean
+  modified?: "round"
 ) {
   const _calculated =
     itemsList.reduce((acc, item) => acc + Number(item[itemKey]), 0) || 0;
-  const calculated = rounded ? Math.round(_calculated) : _calculated;
+  const calculated = modified ? Math.round(_calculated) : _calculated;
 
   return {
     total: calculated,
