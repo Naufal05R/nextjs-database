@@ -22,7 +22,6 @@ async function _getProductById(id: number) {
         reviews: true,
       },
     });
-    console.log(product);
 
     return product;
   } catch (error) {
