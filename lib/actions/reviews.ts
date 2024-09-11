@@ -2,6 +2,11 @@
 
 import { prisma } from "@/lib/prisma";
 
-interface CreateReviewInput {}
+interface CreateReviewInput {
+  name: string;
+  rating: number;
+  content: string;
+  productId: number;
+}
 
 export async function createReview() {}
