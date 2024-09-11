@@ -1,6 +1,6 @@
 "use server";
 
-import { unstable_cache as cache } from "next/cache";
+import { unstable_cache as cache, revalidateTag } from "next/cache";
 
 import { prisma } from "@/lib/prisma";
 
@@ -11,6 +11,27 @@ interface CreateProductInput {
   category: string;
   images?: string[];
 }
+
+async function _getProductById(id: number) {
+  try {
+    const product = await prisma.product.findUnique({
+      where: { id },
+      include: {
+        images: true,
+        reviews: true,
+      },
+    });
+
+    revalidateTag("Product");
+    return product;
+  } catch (error) {
+    return null;
+  }
+}
+
+export const getProductById = cache(_getProductById, ["getProductById"], {
+  tags: ["Product"],
+});
 
 export async function createProduct(product: CreateProductInput) {
   try {
@@ -29,26 +50,6 @@ export async function createProduct(product: CreateProductInput) {
     throw new Error("Error creating product");
   }
 }
-
-async function _getProductById(id: number) {
-  try {
-    const product = await prisma.product.findUnique({
-      where: { id },
-      include: {
-        images: true,
-        reviews: true,
-      },
-    });
-
-    return product;
-  } catch (error) {
-    return null;
-  }
-}
-
-export const getProductById = cache(_getProductById, ["getProductById"], {
-  tags: ["Product"],
-});
 
 export async function updateProduct(id: number, product: CreateProductInput) {
   try {
@@ -81,6 +82,8 @@ export async function deleteProduct(id: number) {
         id,
       },
     });
+
+    revalidateTag("Product");
     return true;
   } catch (error) {
     return false;
