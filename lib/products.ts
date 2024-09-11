@@ -44,4 +44,10 @@ export async function getProductById(id: number) {
   }
 }
 
-export async function updateProduct() {}
+export async function updateProduct() {
+  try {
+    // todo: implement the updateProduct server action
+  } catch (error) {
+    return null;
+  }
+}
