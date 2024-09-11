@@ -30,9 +30,11 @@ export interface ProductEditProps extends Product {
 export default function AddProduct({
   edit,
   id,
+  product,
 }: {
   edit?: boolean;
   id?: string;
+  product?: ProductEditProps;
 }) {
   const title = edit ? "Edit Product " + id : "Add Product";
   const subText = edit
