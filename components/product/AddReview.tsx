@@ -16,7 +16,6 @@ export default function Component() {
     } catch (error) {
       console.error("Error creating review:", error);
     }
-    // console.log({ name, rating, review });
   };
   return (
     <section className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md">
