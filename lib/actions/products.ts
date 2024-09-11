@@ -21,8 +21,8 @@ async function _getProductById(id: number) {
         reviews: true,
       },
     });
+    console.log(product);
 
-    revalidateTag("Product");
     return product;
   } catch (error) {
     return null;
@@ -45,6 +45,7 @@ export async function createProduct(product: CreateProductInput) {
       },
     });
 
+    revalidateTag("Product");
     return newProduct;
   } catch (error) {
     console.error("Error creating product:", error);
