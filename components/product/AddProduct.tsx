@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { createProduct, updateProduct } from "@/lib/products";
+import { createProduct, updateProduct } from "@/lib/actions/products";
 
 export const revalidate = 1;
 

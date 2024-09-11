@@ -3,7 +3,7 @@ import ProductView from "@/components/product/Product";
 import ReviewView from "@/components/product/Review";
 import AddProduct from "@/components/product/AddProduct";
 import DeleteProduct from "@/components/delete/DeleteProduct";
-import { getProductById } from "@/lib/products";
+import { getProductById } from "@/lib/actions/products";
 
 export const revalidate = 1;
 

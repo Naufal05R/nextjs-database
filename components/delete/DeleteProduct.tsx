@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { TrashIcon } from "lucide-react";
 
-import { deleteProduct } from "@/lib/products";
+import { deleteProduct } from "@/lib/actions/products";
 import { Button } from "@/components/ui/button";
 export default function DeleteProduct({ id }: { id: string }) {
   return (
