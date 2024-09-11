@@ -41,11 +41,14 @@ export default function AddProduct({
     ? "Update the details of your product here."
     : "Add a new product to your store.";
 
-  const [images, setImages] = useState<string[]>([]);
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("electronics");
+  const [name, setName] = useState(product?.name || "");
+  const [price, setPrice] = useState(product?.price || 0);
+  const [description, setDescription] = useState(product?.description || "");
+  const [category, setCategory] = useState(product?.category || "");
+
+  const [images, setImages] = useState<string[]>(
+    product?.images.map(({ url }) => url) || []
+  );
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
