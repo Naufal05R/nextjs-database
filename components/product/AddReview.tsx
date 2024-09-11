@@ -4,6 +4,8 @@ import RatingSelect from "./Review/RatingSelect";
 
 import { useState } from "react";
 
+import { createReview } from "@/lib/actions/reviews";
+
 export default function AddReview({ id }: { id: string | number }) {
   const [rating, setRating] = useState(0);
   const [name, setName] = useState("");
@@ -13,6 +15,12 @@ export default function AddReview({ id }: { id: string | number }) {
     event.preventDefault();
 
     try {
+      await createReview({
+        name,
+        rating,
+        content,
+        productId: Number(id),
+      });
     } catch (error) {
       console.error("Error creating review:", error);
     }
