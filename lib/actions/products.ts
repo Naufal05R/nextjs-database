@@ -46,21 +46,9 @@ async function _getProductById(id: number) {
   }
 }
 
-export async function getProductById(id: number) {
-  try {
-    const product = await prisma.product.findUnique({
-      where: { id },
-      include: {
-        images: true,
-        reviews: true,
-      },
-    });
-
-    return product;
-  } catch (error) {
-    return null;
-  }
-}
+export const getProductById = cache(_getProductById, ["getProductById"], {
+  tags: ["Product"],
+});
 
 export async function updateProduct(id: number, product: CreateProductInput) {
   try {
