@@ -12,7 +12,12 @@ export default function Component() {
   const handleSubmit = (event: any) => {
     event.preventDefault();
 
-    console.log({ name, rating, review });
+    try {
+      
+    } catch (error) {
+      
+    }
+    // console.log({ name, rating, review });
   };
   return (
     <section className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md">
