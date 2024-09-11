@@ -4,7 +4,7 @@ import RatingSelect from "./Review/RatingSelect";
 
 import { useState } from "react";
 
-export default function Component() {
+export default function AddReview() {
   const [rating, setRating] = useState(0);
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
