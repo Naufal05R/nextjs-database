@@ -3,6 +3,7 @@
 import ImageSelect from "./ImageSelect";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { PlusIcon } from "lucide-react";
 import { Image, Product, Review } from "@prisma/client";
 
@@ -18,7 +19,6 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { createProduct, updateProduct } from "@/lib/products";
-import { useRouter } from "next/navigation";
 
 export const revalidate = 1;
 
