@@ -35,7 +35,13 @@ export const getProductById = cache(_getProductById, ["getProductById"], {
   revalidate: 60,
 });
 
-export async function getProducts() {}
+export async function getProducts() {
+  try {
+  } catch (error) {
+    console.error("Error getting all products: ", error);
+    throw new Error("Error getting all products");
+  }
+}
 
 export async function createProduct(product: CreateProductInput) {
   try {
