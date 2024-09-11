@@ -68,7 +68,7 @@ export async function updateProduct(id: number, product: CreateProductInput) {
   }
 }
 
-export async function deleteProduct() {
+export async function deleteProduct(id: number) {
   try {
     return true;
   } catch (error) {
