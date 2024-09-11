@@ -44,7 +44,7 @@ export async function getProductById(id: number) {
   }
 }
 
-export async function updateProduct() {
+export async function updateProduct(id: number, product: CreateProductInput) {
   try {
     // todo: implement the updateProduct server action
   } catch (error) {
