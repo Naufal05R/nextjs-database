@@ -21,7 +21,7 @@ import { createProduct } from "@/lib/products";
 
 export const revalidate = 1;
 
-interface ProductEditProps extends Product {
+export interface ProductEditProps extends Product {
   id: number;
   reviews: Review[];
   images: Image[];
