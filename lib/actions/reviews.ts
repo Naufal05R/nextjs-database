@@ -19,7 +19,7 @@ export async function createReview(review: CreateReviewInput) {
 
     return newReview;
   } catch (error) {
-    console.error("Error creating review:", error);
+    console.error("Error creating review: ", error);
     throw new Error("Error creating review");
   }
 }
