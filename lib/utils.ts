@@ -43,5 +43,11 @@ export function formatPrice(
 }
 
 export function calculateScore() {
-  
+  const total = 0;
+  const average = 0;
+
+  return {
+    total,
+    average
+  }
 }
