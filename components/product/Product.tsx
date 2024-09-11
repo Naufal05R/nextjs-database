@@ -2,6 +2,7 @@ import { Image, Product, Review } from "@prisma/client";
 
 import Stars from "@/components/product/Stars";
 import ImageDisplay from "@/components/product/ImageDisplay";
+import { formatPrice } from "@/lib/utils";
 
 export interface ProductViewProps extends Product {
   images: Image[];
@@ -33,7 +34,7 @@ export default function ProductView({
         <h1 className="text-3xl font-bold">{name}</h1>
         <p className="text-gray-500 dark:text-gray-400">{description}</p>
         <div className="flex items-center gap-4">
-          <span className="text-4xl font-bold">${price}</span>
+          <span className="text-4xl font-bold">{formatPrice(price)}</span>
           <div className="flex items-center gap-0.5">
             <Stars rating={averageScore} />
           </div>
