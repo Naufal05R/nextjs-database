@@ -13,7 +13,14 @@ export async function createReview(review: CreateReviewInput) {
   try {
     const newReview = await prisma.review.create({
       data: {
-        ...review,
+        name: review.name,
+        rating: review.rating,
+        content: review.content,
+        product: {
+          connect: {
+            id: review.productId,
+          },
+        },
       },
     });
 
