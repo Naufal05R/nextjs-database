@@ -25,7 +25,8 @@ async function _getProductById(id: number) {
 
     return product;
   } catch (error) {
-    return null;
+    console.error("Error getting product: ", error);
+    throw new Error("Error getting product");
   }
 }
 
@@ -48,7 +49,7 @@ export async function createProduct(product: CreateProductInput) {
     revalidateTag("Product");
     return newProduct;
   } catch (error) {
-    console.error("Error creating product:", error);
+    console.error("Error creating product: ", error);
     throw new Error("Error creating product");
   }
 }
@@ -73,7 +74,8 @@ export async function updateProduct(id: number, product: CreateProductInput) {
 
     return updatedProduct;
   } catch (error) {
-    return null;
+    console.error("Error updating product: ", error);
+    throw new Error("Error updating product");
   }
 }
 
@@ -88,6 +90,7 @@ export async function deleteProduct(id: number) {
     revalidateTag("Product");
     return true;
   } catch (error) {
-    return false;
+    console.error("Error deleting product: ", error);
+    throw new Error("Error deleting product");
   }
 }
