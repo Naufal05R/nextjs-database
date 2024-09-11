@@ -9,4 +9,10 @@ interface CreateReviewInput {
   productId: number;
 }
 
-export async function createReview(review: CreateReviewInput) {}
+export async function createReview(review: CreateReviewInput) {
+    try {
+        
+    } catch (error) {
+        
+    }
+}
