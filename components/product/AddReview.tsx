@@ -7,7 +7,7 @@ import { useState } from "react";
 export default function Component() {
   const [rating, setRating] = useState(0);
   const [name, setName] = useState("");
-  const [review, setReview] = useState("");
+  const [content, setContent] = useState("");
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -57,8 +57,8 @@ export default function Component() {
               Review
             </label>
             <textarea
-              value={review}
-              onChange={(event) => setReview(event.target.value)}
+              value={content}
+              onChange={(event) => setContent(event.target.value)}
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-950 dark:border-gray-700 dark:text-gray-300"
               id="review"
               placeholder="Write your review"
