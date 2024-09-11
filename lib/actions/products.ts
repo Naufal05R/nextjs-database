@@ -49,6 +49,7 @@ export async function getProducts() {
       return {
         ...product,
         rating: calculateScore(product.reviews, "rating").average,
+        stars: calculateScore(product.reviews, "rating", "round").average,
         image: product.images[0]?.url,
       };
     });
