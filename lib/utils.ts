@@ -43,19 +43,15 @@ export function formatPrice(
 }
 
 export function calculateScore<T extends Record<string, number | string>>(
-  itemsList: Array<T>,
-  itemKey: keyof T,
+  list: Array<T>,
+  key: keyof T,
   modified?: "round"
 ) {
-  const _calculated = itemsList.reduce(
-    (acc, item) => acc + Number(item[itemKey]),
-    0
-  );
-  console.log(_calculated);
-  const calculated = modified ? Math.round(_calculated) : _calculated;
+  const calculated = list.reduce((acc, item) => acc + Number(item[key]), 0);
+  const result = (x: number) => Number(modified ? x.toFixed(0) : x.toFixed(1));
 
   return {
-    total: calculated || 0,
-    average: calculated / itemsList.length || 0,
+    total: result(calculated) || 0,
+    average: result(calculated / list.length) || 0,
   };
 }
