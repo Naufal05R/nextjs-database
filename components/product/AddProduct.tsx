@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { createProduct } from "@/lib/products";
+import { createProduct, updateProduct } from "@/lib/products";
 
 export const revalidate = 1;
 
@@ -53,7 +53,17 @@ export default function AddProduct({
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      await createProduct({ name, category, description, price });
+      if (edit && product) {
+        await updateProduct(product.id, {
+          name,
+          price,
+          description,
+          category,
+          images,
+        });
+      } else {
+        await createProduct({ name, category, description, price });
+      }
     } catch (error) {
       console.error("Error creating product:", error);
     }
