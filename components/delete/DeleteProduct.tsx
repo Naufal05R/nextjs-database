@@ -9,7 +9,10 @@ import { Button } from "@/components/ui/button";
 export default function DeleteProduct({ id }: { id: string }) {
   const router = useRouter();
 
-  const handleDelete = () => {}
+  const handleDelete = async () => {
+    const didDelete = await deleteProduct(parseInt(id));
+    didDelete && router.push("/search");
+  };
 
   return (
     <div className="pt-20 flex min-h-screen items-start justify-center bg-gray-100 px-4 py-12 dark:bg-gray-900">
