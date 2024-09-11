@@ -33,7 +33,12 @@ export default function DeleteProduct({ id }: { id: string }) {
           <Button onClick={handleDelete} variant="destructive">
             Confirm Delete
           </Button>
-          <Button variant="outline">Cancel</Button>
+          <Button
+            onClick={() => router.push(`/product/view/${id}`)}
+            variant="outline"
+          >
+            Cancel
+          </Button>
         </div>
       </div>
     </div>
