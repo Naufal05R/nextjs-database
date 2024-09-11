@@ -10,9 +10,13 @@ interface CreateReviewInput {
 }
 
 export async function createReview(review: CreateReviewInput) {
-    try {
-        
-    } catch (error) {
-        
-    }
+  try {
+    const newReview = await prisma.review.create({
+      data: {
+        ...review,
+      },
+    });
+
+    return newReview;
+  } catch (error) {}
 }
