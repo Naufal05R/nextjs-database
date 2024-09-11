@@ -2,7 +2,7 @@
 
 import RatingSelect from "./Review/RatingSelect";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 import { createReview } from "@/lib/actions/reviews";
 
@@ -11,7 +11,7 @@ export default function AddReview({ id }: { id: string | number }) {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
