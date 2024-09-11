@@ -42,6 +42,8 @@ export async function getProducts() {
         images: true,
         reviews: true,
       },
+      skip: 0,
+      take: 10,
     });
 
     const products = allProducts.map((product) => {
