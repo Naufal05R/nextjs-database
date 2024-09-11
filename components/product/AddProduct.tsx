@@ -20,6 +20,8 @@ import { createProduct } from "@/lib/products";
 
 export const revalidate = 1;
 
+interface ProductEditProps {}
+
 export default function AddProduct({
   edit,
   id,
