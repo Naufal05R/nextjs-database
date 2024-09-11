@@ -1,8 +1,13 @@
 import Link from "next/link";
 
 import Stars from "@/components/product/Stars";
+import { Product } from "@prisma/client";
 
-export default function ProductResult({ product }: { product: any }) {
+interface ProductResultProps {
+  product: Product & { rating: number; image: string };
+}
+
+export default function ProductResult({ product }: ProductResultProps) {
   return (
     <div className="bg-white rounded-lg shadow-sm dark:bg-gray-950 overflow-hidden">
       <Link className="block" href={`/product/view/${product.id}`}>
