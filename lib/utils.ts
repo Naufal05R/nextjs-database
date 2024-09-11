@@ -26,18 +26,18 @@ export function modifySearchParams(
   });
 }
 
-export const formatPrice = (
+export function formatPrice(
   value: number,
   options?: {
     locales?: PopularFormatterType;
     style?: keyof Intl.NumberFormatOptionsStyleRegistry;
     currency?: string;
   }
-) => {
+) {
   return new Intl.NumberFormat(options?.locales || "en-US", {
     style: options?.style || "currency",
     currency: options?.currency || "USD",
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }).format(value);
-};
+}
