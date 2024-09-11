@@ -11,8 +11,11 @@ export default function AddReview({ id }: { id: string | number }) {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsSubmitting(true);
 
     try {
       await createReview({
@@ -23,6 +26,8 @@ export default function AddReview({ id }: { id: string | number }) {
       });
     } catch (error) {
       console.error("Error creating review:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
   return (
@@ -74,7 +79,8 @@ export default function AddReview({ id }: { id: string | number }) {
             />
           </div>
           <button
-            className="w-full bg-black hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+            className="w-full bg-black hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50"
+            disabled={isSubmitting}
             type="submit"
           >
             Submit Review
