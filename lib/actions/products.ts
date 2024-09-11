@@ -30,6 +30,22 @@ export async function createProduct(product: CreateProductInput) {
   }
 }
 
+async function _getProductById(id: number) {
+  try {
+    const product = await prisma.product.findUnique({
+      where: { id },
+      include: {
+        images: true,
+        reviews: true,
+      },
+    });
+
+    return product;
+  } catch (error) {
+    return null;
+  }
+}
+
 export async function getProductById(id: number) {
   try {
     const product = await prisma.product.findUnique({
