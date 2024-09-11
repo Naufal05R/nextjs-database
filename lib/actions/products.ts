@@ -1,5 +1,7 @@
 "use server";
 
+import { unstable_cache as cache } from "next/cache";
+
 import { prisma } from "@/lib/prisma";
 
 interface CreateProductInput {
