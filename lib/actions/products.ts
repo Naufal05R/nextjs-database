@@ -31,6 +31,7 @@ async function _getProductById(id: number) {
 
 export const getProductById = cache(_getProductById, ["getProductById"], {
   tags: ["Product"],
+  revalidate: 60,
 });
 
 export async function createProduct(product: CreateProductInput) {
