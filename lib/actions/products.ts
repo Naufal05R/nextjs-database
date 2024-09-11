@@ -35,6 +35,8 @@ export const getProductById = cache(_getProductById, ["getProductById"], {
   revalidate: 60,
 });
 
+export async function getProducts() {}
+
 export async function createProduct(product: CreateProductInput) {
   try {
     const newProduct = await prisma.product.create({
