@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 export default function DeleteProduct({ id }: { id: string }) {
   const router = useRouter();
 
+  const handleDelete = () => {}
+
   return (
     <div className="pt-20 flex min-h-screen items-start justify-center bg-gray-100 px-4 py-12 dark:bg-gray-900">
       <div className="w-full max-w-md space-y-6 rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800">
