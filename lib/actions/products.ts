@@ -3,6 +3,7 @@
 import { unstable_cache as cache, revalidateTag } from "next/cache";
 
 import { prisma } from "@/lib/prisma";
+import { calculateScore } from "../utils";
 
 interface CreateProductInput {
   name: string;
@@ -44,7 +45,15 @@ export async function getProducts() {
       },
     });
 
-    return allProducts;
+    const products = allProducts.map((product) => {
+      return {
+        ...product,
+        rating: calculateScore(product.reviews, "rating").average,
+        image: product.images[0]?.url,
+      };
+    });
+
+    return products;
   } catch (error) {
     console.error("Error getting all products: ", error);
     throw new Error("Error getting all products");
