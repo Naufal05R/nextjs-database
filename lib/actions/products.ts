@@ -37,6 +37,14 @@ export const getProductById = cache(_getProductById, ["getProductById"], {
 
 export async function getProducts() {
   try {
+    const allProducts = await prisma.product.findMany({
+      include: {
+        images: true,
+        reviews: true,
+      },
+    });
+
+    return allProducts;
   } catch (error) {
     console.error("Error getting all products: ", error);
     throw new Error("Error getting all products");
