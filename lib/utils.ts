@@ -43,10 +43,13 @@ export function formatPrice(
 }
 
 export function calculateScore(
-  itemsList: Array<Record<string, number>>,
+  itemsList: Array<Record<string, number | string>>,
   itemKey: string
 ) {
-  const calculated = itemsList.reduce((acc, item) => acc + item[itemKey], 0);
+  const calculated = itemsList.reduce(
+    (acc, item) => acc + Number(item[itemKey]),
+    0
+  );
 
   return {
     total: Math.floor(calculated),
