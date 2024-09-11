@@ -35,7 +35,7 @@ export async function getProductById(id: number) {
       include: {
         images: true,
         reviews: true,
-      }
+      },
     });
 
     return product;
@@ -43,3 +43,5 @@ export async function getProductById(id: number) {
     return null;
   }
 }
+
+export async function updateProduct() {}
