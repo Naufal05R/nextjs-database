@@ -18,6 +18,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { createProduct, updateProduct } from "@/lib/products";
+import { useRouter } from "next/navigation";
 
 export const revalidate = 1;
 
@@ -40,6 +41,8 @@ export default function AddProduct({
   const subText = edit
     ? "Update the details of your product here."
     : "Add a new product to your store.";
+
+  const router = useRouter();
 
   const [name, setName] = useState(product?.name || "");
   const [price, setPrice] = useState(product?.price || 0);
