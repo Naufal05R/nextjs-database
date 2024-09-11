@@ -4,6 +4,7 @@ import ImageSelect from "./ImageSelect";
 
 import { useState } from "react";
 import { PlusIcon } from "lucide-react";
+import { Image, Review } from "@prisma/client";
 
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -20,7 +21,11 @@ import { createProduct } from "@/lib/products";
 
 export const revalidate = 1;
 
-interface ProductEditProps {}
+interface ProductEditProps {
+  id: number;
+  reviews: Review[];
+  images: Image[];
+}
 
 export default function AddProduct({
   edit,
