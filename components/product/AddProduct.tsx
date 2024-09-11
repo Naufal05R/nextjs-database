@@ -62,7 +62,13 @@ export default function AddProduct({
           images,
         });
       } else {
-        await createProduct({ name, category, description, price });
+        await createProduct({
+          name,
+          price,
+          description,
+          category,
+          images,
+        });
       }
     } catch (error) {
       console.error("Error creating product:", error);
