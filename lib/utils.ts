@@ -42,12 +42,16 @@ export function formatPrice(
   }).format(value);
 }
 
-export function calculateScore() {
-  const total = 0;
-  const average = 0;
+export function calculateScore(
+  itemsList: Array<Record<string, number>>,
+  itemKey: string
+) {
+  const calculated = itemsList.reduce((acc, item) => acc + item[itemKey], 0);
+  const total = Math.floor(calculated);
+  const average = Math.floor(calculated / itemsList.length);
 
   return {
     total,
-    average
-  }
+    average,
+  };
 }
