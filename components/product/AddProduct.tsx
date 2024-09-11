@@ -66,13 +66,14 @@ export default function AddProduct({
         });
         updatedProduct && router.push(`/product/view/${updatedProduct.id}`);
       } else {
-        await createProduct({
+        const newProduct = await createProduct({
           name,
           price,
           description,
           category,
           images,
         });
+        newProduct && router.push(`/product/view/${newProduct.id}`);
       }
     } catch (error) {
       console.error("Error creating product:", error);
