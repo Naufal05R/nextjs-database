@@ -20,10 +20,6 @@ export default function ProductView({
     return <div>Product not found</div>;
   }
 
-  const totalScore = product.reviews.reduce(
-    (acc, review) => acc + review.rating,
-    0
-  );
   const averageScore = calculateScore(product.reviews, "rating").average;
 
   const imageUrls = product.images.map(({ url }) => url);
