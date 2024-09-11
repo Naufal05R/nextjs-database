@@ -41,3 +41,7 @@ export function formatPrice(
     maximumFractionDigits: 0,
   }).format(value);
 }
+
+export function calculateScore() {
+  
+}
