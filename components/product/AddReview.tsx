@@ -13,9 +13,8 @@ export default function Component() {
     event.preventDefault();
 
     try {
-      
     } catch (error) {
-      
+      console.error("Error creating review:", error);
     }
     // console.log({ name, rating, review });
   };
