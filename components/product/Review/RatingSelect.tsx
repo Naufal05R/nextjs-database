@@ -19,9 +19,9 @@ export default function RatingSelect({
   const resetRating = () => {
     setHoverRating(rating);
   };
-  const setRatingAndChange = (rating: number) => {
-    setRating(rating);
-    onChange(rating);
+  const setRatingAndChange = (_rating: number) => {
+    setRating(_rating === rating ? 0 : _rating);
+    onChange(_rating === rating ? 0 : _rating);
   };
 
   const renderStars = Array.from({ length: 5 }, (_, index) => {
