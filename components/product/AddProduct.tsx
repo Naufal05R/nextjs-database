@@ -57,6 +57,14 @@ export default function AddProduct({
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const isValidUrl = (url: string) => {
+      const regexp =
+        /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+      return regexp.test(url);
+    };
+
+    const _images = images.filter((image) => isValidUrl(image));
+
     try {
       if (edit && product) {
         const updatedProduct = await updateProduct(product.id, {
@@ -64,7 +72,7 @@ export default function AddProduct({
           price,
           description,
           category,
-          images,
+          images: _images,
         });
         updatedProduct && router.push(`/product/view/${updatedProduct.id}`);
       } else {
@@ -73,7 +81,7 @@ export default function AddProduct({
           price,
           description,
           category,
-          images,
+          images: _images,
         });
         newProduct && router.push(`/product/view/${newProduct.id}`);
       }
