@@ -1,9 +1,10 @@
 "use server";
 
+import { calculateScore } from "../utils";
+
 import { unstable_cache as cache, revalidateTag } from "next/cache";
 
 import { prisma } from "@/lib/prisma";
-import { calculateScore } from "../utils";
 
 interface CreateProductInput {
   name: string;
