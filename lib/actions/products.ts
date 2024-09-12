@@ -51,6 +51,12 @@ export async function getProducts({
 }) {
   try {
     const allProducts = await prisma.product.findMany({
+      where: {
+        name: {
+          contains: name,
+          mode: "insensitive",
+        },
+      },
       include: {
         images: true,
         reviews: true,
