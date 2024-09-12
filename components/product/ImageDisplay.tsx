@@ -33,7 +33,7 @@ export default function ImageDisplay({ images }: { images: string[] }) {
               <img
                 src={image}
                 alt="product"
-                className="w-full h-full object-cover"
+                className="w-full aspect-video object-cover"
               />
             </CarouselItem>
           ))}
