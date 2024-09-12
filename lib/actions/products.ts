@@ -42,13 +42,13 @@ export async function getProducts({
   page = 1,
   name,
   minPrice,
-  rating,
+  minRating,
   category,
 }: {
   page?: number;
   name?: string;
   minPrice?: string;
-  rating?: number;
+  minRating?: string;
   category?: string;
 }) {
   try {
@@ -79,14 +79,16 @@ export async function getProducts({
       take: PRODUCTS_PER_PAGE,
     });
 
-    const products = allProducts.map((product) => {
-      return {
-        ...product,
-        rating: calculateScore(product.reviews, "rating").average,
-        stars: calculateScore(product.reviews, "rating", "round").average,
-        image: product.images[0]?.url,
-      };
-    });
+    const products = allProducts
+      .map((product) => {
+        return {
+          ...product,
+          rating: calculateScore(product.reviews, "rating").average,
+          stars: calculateScore(product.reviews, "rating", "round").average,
+          image: product.images[0]?.url,
+        };
+      })
+      .filter((product) => product.stars >= (Number(minRating) || 0));
 
     return products;
   } catch (error) {
