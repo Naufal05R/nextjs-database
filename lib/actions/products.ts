@@ -38,7 +38,17 @@ export const getProductById = cache(_getProductById, ["getProductById"], {
   revalidate: 60,
 });
 
-export async function getProducts({ page = 1 }) {
+export async function getProducts({
+  page = 1,
+  name,
+  minPrice,
+  category,
+}: {
+  page?: number;
+  name?: string;
+  minPrice?: string;
+  category?: string;
+}) {
   try {
     const allProducts = await prisma.product.findMany({
       include: {
