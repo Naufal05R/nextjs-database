@@ -10,6 +10,7 @@ export default async function Page({
     name: string;
     category: string;
     minRating: string;
+    minPrice: string;
     page: string;
   };
 }) {
