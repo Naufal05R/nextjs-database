@@ -67,6 +67,11 @@ export async function getProducts({
             equals: category,
           },
         }),
+        ...(minPrice && {
+          price: {
+            gte: parseInt(minPrice),
+          },
+        }),
       },
       skip: (page - 1) * PRODUCTS_PER_PAGE,
       take: PRODUCTS_PER_PAGE,
