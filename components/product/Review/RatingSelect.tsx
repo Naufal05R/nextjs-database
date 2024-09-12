@@ -5,12 +5,14 @@ import { useState } from "react";
 import Star from "@/components/product/Stars/StarIcon";
 
 export default function RatingSelect({
+  initialStar,
   onChange,
 }: {
+  initialStar?: number;
   onChange: (rating: number) => void;
 }) {
-  const [rating, setRating] = useState(0);
-  const [hoverRating, setHoverRating] = useState(0);
+  const [rating, setRating] = useState(initialStar || 0);
+  const [hoverRating, setHoverRating] = useState(initialStar || 0);
 
   const handleRating = (event: any) => {
     const { position } = event.currentTarget.dataset;
