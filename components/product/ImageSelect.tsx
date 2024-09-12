@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
 export default function ImageSelect({
-  initialImages,
+  initialImages = [],
   onChange,
 }: {
   initialImages: string[];
   onChange: (value: string[]) => void;
 }) {
   const [numImages, setNumImages] = useState(1);
-  const [images, setImages] = useState<string[]>([]);
+  const [images, setImages] = useState<string[]>(initialImages);
   const handleAddImage = () => {
     setNumImages(numImages + 1);
   };
