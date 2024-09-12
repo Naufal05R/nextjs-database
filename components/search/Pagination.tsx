@@ -6,12 +6,16 @@ import { modifySearchParams } from "@/lib/utils";
 
 const Pagination = () => {
   const router = useRouter();
-  const searchParams = Object.fromEntries(useSearchParams());
+  const searchParams = Object.fromEntries(useSearchParams()) as any;
 
   const page = parseInt(searchParams.page) || 1;
 
   const handlePageChange = (newPage: number) => {
-    
+    const query = modifySearchParams(searchParams, {
+      ...searchParams,
+      page: newPage,
+    });
+    router.push(`/search?${query}`);
   };
 
   return (
