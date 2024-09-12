@@ -14,7 +14,7 @@ export default async function Page({
   };
 }) {
   const page = parseInt(searchParams.page) || 1;
-  const products = await getProducts({ page });
+  const products = await getProducts({ ...searchParams, page });
 
   return (
     <div className="grid md:grid-cols-[300px_1fr] gap-8 px-4 md:px-8 py-20">
