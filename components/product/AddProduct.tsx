@@ -6,6 +6,7 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { PlusIcon } from "lucide-react";
 import { Image, Product, Review } from "@prisma/client";
+import CurrencyInput from "react-currency-input-field";
 
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -19,6 +20,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { createProduct, updateProduct } from "@/lib/actions/products";
+import { input } from "@/lib/styles";
 
 export const revalidate = 1;
 
@@ -118,12 +120,15 @@ export default function AddProduct({
           </div>
           <div className="grid gap-2">
             <Label htmlFor="price">Price</Label>
-            <Input
-              value={price}
-              onChange={(e) => setPrice(Number(e.target.value))}
+            <CurrencyInput
               id="price"
-              type="number"
               placeholder="Price"
+              prefix="$"
+              allowDecimals
+              decimalSeparator="."
+              value={price}
+              onValueChange={(n) => (n ? setPrice(Number(n)) : setPrice(0))}
+              className={input}
             />
           </div>
           <div className="grid gap-2">
