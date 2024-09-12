@@ -13,7 +13,7 @@ export default function Price() {
       <input
         type="range"
         min="0"
-        max="100"
+        max="2000"
         value={minPrice || 0}
         onChange={(e) => setMinPrice(e.target.value)}
       />
