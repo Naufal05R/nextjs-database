@@ -46,6 +46,7 @@ export default function ImageSelect({
             />
             <Button
               size="icon"
+              type="button"
               variant="outline"
               onClick={() => handleImageRemove(index)}
             >
