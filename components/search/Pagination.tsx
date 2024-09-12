@@ -20,10 +20,16 @@ const Pagination = () => {
 
   return (
     <div className="flex justify-center gap-4">
-      <button className="text-black disabled:text-gray-400">
+      <button
+        onClick={() => handlePageChange(page - 1)}
+        disabled={page <= 1}
+        className="text-black disabled:text-gray-400"
+      >
         Previous Page
       </button>
-      <button className="text-black">Next Page</button>
+      <button onClick={() => handlePageChange(page + 1)} className="text-black">
+        Next Page
+      </button>
     </div>
   );
 };
