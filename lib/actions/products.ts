@@ -50,16 +50,23 @@ export async function getProducts({
   category?: string;
 }) {
   try {
+    const filterCategory = category !== "all";
+
     const allProducts = await prisma.product.findMany({
+      include: {
+        images: true,
+        reviews: true,
+      },
       where: {
         name: {
           contains: name,
           mode: "insensitive",
         },
-      },
-      include: {
-        images: true,
-        reviews: true,
+        ...(filterCategory && {
+          category: {
+            equals: category,
+          },
+        }),
       },
       skip: (page - 1) * PRODUCTS_PER_PAGE,
       take: PRODUCTS_PER_PAGE,
