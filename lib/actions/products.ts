@@ -42,11 +42,13 @@ export async function getProducts({
   page = 1,
   name,
   minPrice,
+  rating,
   category,
 }: {
   page?: number;
   name?: string;
   minPrice?: string;
+  rating?: number;
   category?: string;
 }) {
   try {
