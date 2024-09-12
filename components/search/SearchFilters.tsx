@@ -1,4 +1,4 @@
-import { Category, Name, Price } from "@/components/search/filterComponents";
+import { Category, Name, Price, Rating } from "@/components/search/filterComponents";
 
 export default function SearchFilters() {
   return (
@@ -7,6 +7,7 @@ export default function SearchFilters() {
       <div className="grid gap-4 mt-4">
         <Name />
         <Price />
+        <Rating />
         <Category />
       </div>
     </div>
