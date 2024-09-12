@@ -124,8 +124,6 @@ export default function AddProduct({
               id="price"
               placeholder="Price"
               prefix="$"
-              allowDecimals
-              decimalSeparator="."
               value={price}
               onValueChange={(value) => setPrice(value ? Number(value) : 0)}
               className={input}
