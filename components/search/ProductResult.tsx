@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { Product } from "@prisma/client";
 
 import Stars from "@/components/product/Stars";
-import { Product } from "@prisma/client";
 
 interface ProductResultProps {
   product: Product & { rating: number; stars: number; image?: string };
@@ -14,7 +14,7 @@ export default function ProductResult({ product }: ProductResultProps) {
         <img
           src={product.image || "https://dummyimage.com/600x520/000/fff"}
           alt="product"
-          className="w-full h-full object-cover"
+          className="w-full aspect-video object-cover"
         />
         <div className="p-4 space-y-2">
           <h3 className="font-semibold text-lg">{product.name}</h3>
