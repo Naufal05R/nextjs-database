@@ -127,7 +127,7 @@ export default function AddProduct({
               allowDecimals
               decimalSeparator="."
               value={price}
-              onValueChange={(n) => (n ? setPrice(Number(n)) : setPrice(0))}
+              onValueChange={(value) => setPrice(value ? Number(value) : 0)}
               className={input}
             />
           </div>
