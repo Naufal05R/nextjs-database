@@ -11,10 +11,45 @@ interface CreateReviewInput {
   productId: number;
 }
 
-export async function getTotalElectronicsReview() {}
-export async function getTotalClothingReview() {}
-export async function getTotalHomeReview() {}
-export async function getTotalSportsReview() {}
+export async function getTotalElectronicsReview() {
+  const totalReview = await prisma.review.count({
+    where: {
+      product: {
+        category: "electronics",
+      },
+    },
+  });
+}
+
+export async function getTotalClothingReview() {
+  const totalReview = await prisma.review.count({
+    where: {
+      product: {
+        category: "clothing",
+      },
+    },
+  });
+}
+
+export async function getTotalHomeReview() {
+  const totalReview = await prisma.review.count({
+    where: {
+      product: {
+        category: "home",
+      },
+    },
+  });
+}
+
+export async function getTotalSportsReview() {
+  const totalReview = await prisma.review.count({
+    where: {
+      product: {
+        category: "sports",
+      },
+    },
+  });
+}
 
 export async function createReview(review: CreateReviewInput) {
   try {
