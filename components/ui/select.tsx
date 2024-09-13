@@ -136,7 +136,7 @@ const SelectItem = React.forwardRef<
 
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
 
-    <span className="ml-auto">{sideValue}</span>
+    <span className="ml-auto text-xs text-gray-400">{sideValue}</span>
   </SelectPrimitive.Item>
 ));
 SelectItem.displayName = SelectPrimitive.Item.displayName;
