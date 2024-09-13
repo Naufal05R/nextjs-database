@@ -10,7 +10,16 @@ import {
 import { Label } from "@/components/ui/label";
 import { useURLQuery } from "@/lib/hooks/useURLQuery";
 
-export default function Category() {
+export default function Category({
+  totalProducts,
+}: {
+  totalProducts: {
+    electronics: number;
+    clothing: number;
+    home: number;
+    sports: number;
+  };
+}) {
   const [category, setCategory] = useURLQuery("category", "all");
   return (
     <div>
@@ -26,10 +35,21 @@ export default function Category() {
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="all">All</SelectItem>
-          <SelectItem value="electronics">Electronics</SelectItem>
-          <SelectItem value="clothing">Clothing</SelectItem>
-          <SelectItem value="home">Home</SelectItem>
-          <SelectItem value="sports">Sports</SelectItem>
+          <SelectItem
+            sideValue={`${totalProducts.electronics}`}
+            value="electronics"
+          >
+            Electronics
+          </SelectItem>
+          <SelectItem sideValue={`${totalProducts.clothing}`} value="clothing">
+            Clothing
+          </SelectItem>
+          <SelectItem sideValue={`${totalProducts.home}`} value="home">
+            Home
+          </SelectItem>
+          <SelectItem sideValue={`${totalProducts.sports}`} value="sports">
+            Sports
+          </SelectItem>
         </SelectContent>
       </Select>
     </div>
