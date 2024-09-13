@@ -1,6 +1,24 @@
-import { Category, Name, Price, Rating } from "@/components/search/filterComponents";
+import {
+  Category,
+  Name,
+  Price,
+  Rating,
+} from "@/components/search/filterComponents";
+import { getTotalProductByCategory } from "@/lib/actions/products";
 
-export default function SearchFilters() {
+export default async function SearchFilters() {
+  const totalElectronics = await getTotalProductByCategory("electronics");
+  const totalClothing = await getTotalProductByCategory("clothing");
+  const totalHome = await getTotalProductByCategory("home");
+  const totalSports = await getTotalProductByCategory("sports");
+
+  const totalProducts = {
+    electronics: totalElectronics,
+    clothing: totalClothing,
+    home: totalHome,
+    sports: totalSports,
+  };
+
   return (
     <div>
       <h3 className="text-lg font-semibold">Filters</h3>
@@ -8,7 +26,7 @@ export default function SearchFilters() {
         <Name />
         <Price />
         <Rating />
-        <Category />
+        <Category totalProducts={totalProducts} />
       </div>
     </div>
   );
