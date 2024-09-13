@@ -11,54 +11,20 @@ interface CreateReviewInput {
   productId: number;
 }
 
-export async function getTotalElectronicsReview() {
+export async function getTotalReviewByCategory(category: string) {
   try {
     const totalReview = await prisma.review.count({
       where: {
         product: {
-          category: "electronics",
+          category,
         },
       },
     });
 
     return totalReview;
   } catch (error) {
-    console.error("Error getting total electronics review: ");
-    throw new Error("Error getting total electronics review");
-  }
-}
-
-export async function getTotalClothingReview() {
-  try {
-    const totalReview = await prisma.review.count({
-      where: {
-        product: {
-          category: "clothing",
-        },
-      },
-    });
-
-    return totalReview;
-  } catch (error) {
-    console.error("Error getting total clothing review: ");
-    throw new Error("Error getting total clothing review");
-  }
-}
-
-export async function getTotalHomeReview() {
-  try {
-    const totalReview = await prisma.review.count({
-      where: {
-        product: {
-          category: "home",
-        },
-      },
-    });
-
-    return totalReview;
-  } catch (error) {
-    console.error("Error getting total home review: ");
-    throw new Error("Error getting total home review");
+    console.error(`Error getting total ${category} review: `);
+    throw new Error(`Error getting total ${category} review`);
   }
 }
 
