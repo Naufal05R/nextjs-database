@@ -4,7 +4,12 @@ import { Product } from "@prisma/client";
 import Stars from "@/components/product/Stars";
 
 interface ProductResultProps {
-  product: Product & { rating: number; stars: number; image?: string };
+  product: Product & {
+    rating: number;
+    stars: number;
+    image?: string;
+    _count: { reviews: number };
+  };
 }
 
 export default function ProductResult({ product }: ProductResultProps) {
@@ -21,7 +26,9 @@ export default function ProductResult({ product }: ProductResultProps) {
           <div className="flex items-center gap-1">
             <Stars rating={product.stars} />
             <span className="text-sm text-gray-500 dark:text-gray-400 ml-2">
-              {product.rating}
+              {product.rating || ""}
+              {!product.rating || " out of "}
+              {product._count.reviews || ""}
             </span>
           </div>
         </div>
