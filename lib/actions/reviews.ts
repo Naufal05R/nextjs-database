@@ -12,43 +12,71 @@ interface CreateReviewInput {
 }
 
 export async function getTotalElectronicsReview() {
-  const totalReview = await prisma.review.count({
-    where: {
-      product: {
-        category: "electronics",
+  try {
+    const totalReview = await prisma.review.count({
+      where: {
+        product: {
+          category: "electronics",
+        },
       },
-    },
-  });
+    });
+
+    return totalReview;
+  } catch (error) {
+    console.error("Error getting total electronics review: ");
+    throw new Error("Error getting total electronics review");
+  }
 }
 
 export async function getTotalClothingReview() {
-  const totalReview = await prisma.review.count({
-    where: {
-      product: {
-        category: "clothing",
+  try {
+    const totalReview = await prisma.review.count({
+      where: {
+        product: {
+          category: "clothing",
+        },
       },
-    },
-  });
+    });
+
+    return totalReview;
+  } catch (error) {
+    console.error("Error getting total clothing review: ");
+    throw new Error("Error getting total clothing review");
+  }
 }
 
 export async function getTotalHomeReview() {
-  const totalReview = await prisma.review.count({
-    where: {
-      product: {
-        category: "home",
+  try {
+    const totalReview = await prisma.review.count({
+      where: {
+        product: {
+          category: "home",
+        },
       },
-    },
-  });
+    });
+
+    return totalReview;
+  } catch (error) {
+    console.error("Error getting total home review: ");
+    throw new Error("Error getting total home review");
+  }
 }
 
 export async function getTotalSportsReview() {
-  const totalReview = await prisma.review.count({
-    where: {
-      product: {
-        category: "sports",
+  try {
+    const totalReview = await prisma.review.count({
+      where: {
+        product: {
+          category: "sports",
+        },
       },
-    },
-  });
+    });
+
+    return totalReview;
+  } catch (error) {
+    console.error("Error getting total sports review: ");
+    throw new Error("Error getting total sports review");
+  }
 }
 
 export async function createReview(review: CreateReviewInput) {
