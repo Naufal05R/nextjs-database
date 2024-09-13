@@ -5,10 +5,10 @@ import Stars from "@/components/product/Stars";
 
 interface ProductResultProps {
   product: Product & {
-    rating: number;
-    stars: number;
+    rating?: number;
+    stars?: number;
     image?: string;
-    _count: { reviews: number };
+    _count?: { reviews: number };
   };
 }
 
@@ -24,11 +24,11 @@ export default function ProductResult({ product }: ProductResultProps) {
         <div className="p-4 space-y-2">
           <h3 className="font-semibold text-lg">{product.name}</h3>
           <div className="flex items-center gap-1">
-            <Stars rating={product.stars} />
+            <Stars rating={product.stars ?? 0} />
             <span className="text-sm text-gray-500 dark:text-gray-400 ml-2">
               {product.rating || ""}
               {!product.rating || " out of "}
-              {product._count.reviews || ""}
+              {product._count?.reviews || ""}
             </span>
           </div>
         </div>
