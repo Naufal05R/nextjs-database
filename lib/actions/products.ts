@@ -58,6 +58,9 @@ export async function getProducts({
       include: {
         images: true,
         reviews: true,
+        _count: {
+          select: { reviews: true },
+        },
       },
       where: {
         name: {
