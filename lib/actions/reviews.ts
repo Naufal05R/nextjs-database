@@ -11,6 +11,11 @@ interface CreateReviewInput {
   productId: number;
 }
 
+export async function getTotalElectronicsReview() {}
+export async function getTotalClothingReview() {}
+export async function getTotalHomeReview() {}
+export async function getTotalSportsReview() {}
+
 export async function createReview(review: CreateReviewInput) {
   try {
     const newReview = await prisma.review.create({
