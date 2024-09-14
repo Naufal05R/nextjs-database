@@ -3,7 +3,7 @@ import ProductResult from "@/components/search/ProductResult";
 import SearchFilters from "@/components/search/SearchFilters";
 import { getProducts } from "@/lib/actions/products";
 
-export default async function Page({
+export default function Page({
   searchParams,
 }: {
   searchParams: {
@@ -15,7 +15,6 @@ export default async function Page({
   };
 }) {
   const page = parseInt(searchParams.page) || 1;
-  const products = await getProducts({ ...searchParams, page });
 
   return (
     <div className="grid md:grid-cols-[300px_1fr] gap-8 px-4 md:px-8 py-20">
@@ -40,20 +39,8 @@ interface ProductListProps {
   page: number;
 }
 
-const ProductList = async ({
-  name,
-  category,
-  minRating,
-  minPrice,
-  page,
-}: ProductListProps) => {
-  const products = await getProducts({
-    name,
-    category,
-    minRating,
-    minPrice,
-    page,
-  });
+const ProductList = async (productProps: ProductListProps) => {
+  const products = await getProducts(productProps);
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
