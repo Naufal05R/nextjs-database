@@ -1,11 +1,11 @@
 "use server";
 
+import { MAX_PRODUCT_PER_PAGE } from "../constants";
 import { calculateScore } from "../utils";
 
 import { unstable_cache as cache, revalidateTag } from "next/cache";
 
 import { prisma } from "@/lib/prisma";
-import { MAX_PRODUCT_PER_PAGE } from "../constants";
 
 interface CreateProductInput {
   name: string;
