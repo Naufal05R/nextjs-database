@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import Pagination from "@/components/search/Pagination";
 import ProductResult from "@/components/search/ProductResult";
 import SearchFilters from "@/components/search/SearchFilters";
@@ -22,7 +24,9 @@ export default function Page({
         <SearchFilters />
         <Pagination />
       </div>
-      <ProductList {...searchParams} page={page} />
+      <Suspense key={page} fallback={<div>Loading...</div>}>
+        <ProductList {...searchParams} page={page} />
+      </Suspense>
     </div>
   );
 }
