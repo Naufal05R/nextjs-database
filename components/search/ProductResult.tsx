@@ -22,7 +22,7 @@ export default function ProductResult({ product }: ProductResultProps) {
           className="w-full aspect-video object-cover"
         />
         <div className="p-4 space-y-2">
-          <h3 className="font-semibold text-lg">{product.name}</h3>
+          <h3 className="font-semibold text-lg line-clamp-1">{product.name}</h3>
           <div className="flex items-center gap-1">
             <Stars rating={product.stars ?? 0} />
             <span className="text-sm text-gray-500 dark:text-gray-400 ml-2">
