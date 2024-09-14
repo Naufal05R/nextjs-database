@@ -4,7 +4,6 @@ import Pagination from "@/components/search/Pagination";
 import ProductResult from "@/components/search/ProductResult";
 import SearchFilters from "@/components/search/SearchFilters";
 import { getProducts } from "@/lib/actions/products";
-import Stars from "@/components/product/Stars";
 import { ProductListSkeleton } from "@/components/ui/skeletons";
 
 export default function Page({
