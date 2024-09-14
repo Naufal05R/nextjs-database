@@ -52,7 +52,7 @@ export default function Header() {
   const renderLinks = () => links.map(renderLink);
 
   return (
-    <header className="w-screen fixed top-0 left-0 shadow-lg top-0 z-[120] flex items-center justify-between bg-black text-white px-6 py-4">
+    <header className="w-screen fixed top-0 left-0 shadow-lg z-[120] flex items-center justify-between bg-black text-white px-6 py-4">
       <Link className="flex items-center gap-2" href="/search">
         <Package2Icon className="h-6 w-6" />
         <span className="font-semibold">Acme Store Admin Panel</span>
