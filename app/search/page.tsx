@@ -40,7 +40,13 @@ interface ProductListProps {
   page: string;
 }
 
-const ProductList = async () => {
+const ProductList = async ({
+  name,
+  category,
+  minRating,
+  minPrice,
+  page,
+}: ProductListProps) => {
   const products = await getProducts({ ...searchParams, page });
 
   return (
