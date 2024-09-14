@@ -37,7 +37,7 @@ interface ProductListProps {
   category: string;
   minRating: string;
   minPrice: string;
-  page: string;
+  page: number;
 }
 
 const ProductList = async ({
@@ -47,7 +47,13 @@ const ProductList = async ({
   minPrice,
   page,
 }: ProductListProps) => {
-  const products = await getProducts({ ...searchParams, page });
+  const products = await getProducts({
+    name,
+    category,
+    minRating,
+    minPrice,
+    page,
+  });
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
