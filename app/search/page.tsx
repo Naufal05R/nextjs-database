@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import Pagination from "@/components/search/Pagination";
 import ProductResult from "@/components/search/ProductResult";
 import SearchFilters from "@/components/search/SearchFilters";
-import { getProducts } from "@/lib/actions/products";
+import { getProducts, MAX_PRODUCT_PER_PAGE } from "@/lib/actions/products";
 import { ProductListSkeleton } from "@/components/ui/skeletons";
 
 export default function Page({
@@ -25,7 +25,10 @@ export default function Page({
         <SearchFilters />
         <Pagination />
       </div>
-      <Suspense key={page} fallback={<ProductListSkeleton length={12} />}>
+      <Suspense
+        key={page}
+        fallback={<ProductListSkeleton length={MAX_PRODUCT_PER_PAGE} />}
+      >
         <ProductList {...searchParams} page={page} />
       </Suspense>
     </div>
