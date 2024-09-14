@@ -32,6 +32,14 @@ export default async function Page({
   );
 }
 
+interface ProductListProps {
+  name: string;
+  category: string;
+  minRating: string;
+  minPrice: string;
+  page: string;
+}
+
 const ProductList = async () => {
   const products = await getProducts({ ...searchParams, page });
 
