@@ -27,6 +27,7 @@ export default function Page({
           <ProductResult key={product.id} product={product} />
         ))}
       </div> */}
+      <ProductList {...searchParams} page={page} />
     </div>
   );
 }
