@@ -1,9 +1,10 @@
 import { Suspense } from "react";
 
+import { MAX_PRODUCT_PER_PAGE } from "@/lib/constants";
 import Pagination from "@/components/search/Pagination";
 import ProductResult from "@/components/search/ProductResult";
 import SearchFilters from "@/components/search/SearchFilters";
-import { getProducts, MAX_PRODUCT_PER_PAGE } from "@/lib/actions/products";
+import { getProducts } from "@/lib/actions/products";
 import { ProductListSkeleton } from "@/components/ui/skeletons";
 
 export default function Page({
