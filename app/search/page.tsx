@@ -31,3 +31,7 @@ export default async function Page({
     </div>
   );
 }
+
+const ProductList = () => {
+  
+}
