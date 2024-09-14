@@ -28,7 +28,7 @@ export default function Page({
       <Suspense
         key={page}
         fallback={
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 min-w-64 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             {Array.from({ length: 12 }).map((_, index) => (
               <div
                 key={index}
