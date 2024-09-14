@@ -14,8 +14,6 @@ interface CreateProductInput {
   images?: string[];
 }
 
-export const MAX_PRODUCT_PER_PAGE = 9;
-
 async function _getProductById(id: number) {
   try {
     const product = await prisma.product.findUnique({
