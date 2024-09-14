@@ -73,7 +73,7 @@ const ProductList = async (productProps: ProductListProps) => {
   const products = await getProducts(productProps);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 min-w-64 lg:grid-cols-2 xl:grid-cols-3 gap-6">
       {products.map((product) => (
         <ProductResult key={product.id} product={product} />
       ))}
