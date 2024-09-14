@@ -14,7 +14,7 @@ interface CreateProductInput {
   images?: string[];
 }
 
-const PRODUCTS_PER_PAGE = 5;
+export const MAX_PRODUCT_PER_PAGE = 9;
 
 async function _getProductById(id: number) {
   try {
@@ -93,8 +93,8 @@ export async function getProducts({
           },
         }),
       },
-      skip: (page - 1) * PRODUCTS_PER_PAGE,
-      take: PRODUCTS_PER_PAGE,
+      skip: (page - 1) * MAX_PRODUCT_PER_PAGE,
+      take: MAX_PRODUCT_PER_PAGE,
     });
 
     const products = allProducts
