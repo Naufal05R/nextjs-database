@@ -9,11 +9,7 @@ export const ProductListSkeleton = ({ length }: { length: number }) => {
           className="bg-white rounded-lg shadow-sm dark:bg-gray-950 overflow-hidden"
         >
           <div className="block">
-            <img
-              src="https://dummyimage.com/600x520/000/fff"
-              alt="product"
-              className="w-full aspect-video object-cover"
-            />
+            <div className="w-full aspect-video bg-gray-400" />
             <div className="p-4 space-y-2">
               <h3 className="font-semibold text-lg">Product Name</h3>
               <div className="flex items-center gap-1">
