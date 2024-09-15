@@ -39,6 +39,12 @@ export const getProductById = cache(_getProductById, ["getProductById"], {
 
 export async function getAllTotalProductsByCategory() {
   try {
+    const totalProducts = await prisma.product.groupBy({
+      by: ["category"],
+      _count: {
+        category: true,
+      },
+    });
   } catch (error) {
     console.error(`Error getting total product in category: `);
     throw new Error(`Error getting total product in category`);
