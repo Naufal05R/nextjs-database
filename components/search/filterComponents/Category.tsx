@@ -33,21 +33,6 @@ export default function Category({ totalProducts }: CategoryProps) {
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="all">All</SelectItem>
-          <SelectItem
-            sideValue={`${totalProducts.electronics}`}
-            value="electronics"
-          >
-            Electronics
-          </SelectItem>
-          <SelectItem sideValue={`${totalProducts.clothing}`} value="clothing">
-            Clothing
-          </SelectItem>
-          <SelectItem sideValue={`${totalProducts.home}`} value="home">
-            Home
-          </SelectItem>
-          <SelectItem sideValue={`${totalProducts.sports}`} value="sports">
-            Sports
-          </SelectItem>
         </SelectContent>
       </Select>
     </div>
