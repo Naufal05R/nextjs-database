@@ -37,6 +37,8 @@ export const getProductById = cache(_getProductById, ["getProductById"], {
   revalidate: 60,
 });
 
+export async function getAllTotalProductsByCategory() {}
+
 export async function getTotalProductByCategory(category: string) {
   try {
     const totalProduct = await prisma.product.count({
