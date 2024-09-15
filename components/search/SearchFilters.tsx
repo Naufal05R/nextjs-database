@@ -12,13 +12,6 @@ export default async function SearchFilters() {
   const totalHome = await getTotalProductByCategory("home");
   const totalSports = await getTotalProductByCategory("sports");
 
-  const totalProducts = {
-    electronics: totalElectronics,
-    clothing: totalClothing,
-    home: totalHome,
-    sports: totalSports,
-  };
-
   return (
     <div>
       <h3 className="text-lg font-semibold">Filters</h3>
