@@ -45,6 +45,8 @@ export async function getAllTotalProductsByCategory() {
         category: true,
       },
     });
+
+    return totalProducts;
   } catch (error) {
     console.error(`Error getting total product in category: `);
     throw new Error(`Error getting total product in category`);
