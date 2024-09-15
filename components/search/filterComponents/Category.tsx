@@ -9,16 +9,14 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { useURLQuery } from "@/lib/hooks/useURLQuery";
+import { getAllTotalProductsByCategory } from "@/lib/actions/products";
+
+type TotalProducts = Awaited<ReturnType<typeof getAllTotalProductsByCategory>>;
 
 export default function Category({
   totalProducts,
 }: {
-  totalProducts: {
-    electronics: number;
-    clothing: number;
-    home: number;
-    sports: number;
-  };
+  totalProducts: TotalProducts;
 }) {
   const [category, setCategory] = useURLQuery("category", "all");
   return (
