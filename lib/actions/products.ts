@@ -39,9 +39,9 @@ export const getProductById = cache(_getProductById, ["getProductById"], {
 
 export async function getAllTotalProductsByCategory() {
   try {
-    
   } catch (error) {
-    
+    console.error(`Error getting total product in category: `);
+    throw new Error(`Error getting total product in category`);
   }
 }
 
