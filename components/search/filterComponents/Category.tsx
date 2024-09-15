@@ -13,11 +13,11 @@ import { getAllTotalProductsByCategory } from "@/lib/actions/products";
 
 type TotalProducts = Awaited<ReturnType<typeof getAllTotalProductsByCategory>>;
 
-export default function Category({
-  totalProducts,
-}: {
+interface CategoryProps {
   totalProducts: TotalProducts;
-}) {
+}
+
+export default function Category({ totalProducts }: CategoryProps) {
   const [category, setCategory] = useURLQuery("category", "all");
   return (
     <div>
