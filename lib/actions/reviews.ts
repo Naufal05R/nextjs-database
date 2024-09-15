@@ -11,23 +11,6 @@ interface CreateReviewInput {
   productId: number;
 }
 
-export async function getTotalReviewByCategory(category: string) {
-  try {
-    const totalReview = await prisma.review.count({
-      where: {
-        product: {
-          category,
-        },
-      },
-    });
-
-    return totalReview;
-  } catch (error) {
-    console.error(`Error getting total ${category} review: `);
-    throw new Error(`Error getting total ${category} review`);
-  }
-}
-
 export async function createReview(review: CreateReviewInput) {
   try {
     const newReview = await prisma.review.create({
