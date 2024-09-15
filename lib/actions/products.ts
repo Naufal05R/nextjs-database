@@ -107,8 +107,6 @@ export async function getProducts({
       })
       .filter((product) => product.stars >= (Number(minRating) || 0));
 
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-
     return products;
   } catch (error) {
     console.error("Error getting all products: ", error);
