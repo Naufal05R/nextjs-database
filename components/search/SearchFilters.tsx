@@ -4,8 +4,11 @@ import {
   Price,
   Rating,
 } from "@/components/search/filterComponents";
+import { getAllTotalProductsByCategory } from "@/lib/actions/products";
 
 export default async function SearchFilters() {
+  const totalProducts = await getAllTotalProductsByCategory();
+
   return (
     <div>
       <h3 className="text-lg font-semibold">Filters</h3>
