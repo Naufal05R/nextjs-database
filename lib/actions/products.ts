@@ -53,21 +53,6 @@ export async function getAllTotalProductsByCategory() {
   }
 }
 
-export async function getTotalProductByCategory(category: string) {
-  try {
-    const totalProduct = await prisma.product.count({
-      where: {
-        category,
-      },
-    });
-
-    return totalProduct;
-  } catch (error) {
-    console.error(`Error getting total ${category} product: `);
-    throw new Error(`Error getting total ${category} product`);
-  }
-}
-
 export async function getProducts({
   page = 1,
   name,
