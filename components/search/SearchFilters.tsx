@@ -4,10 +4,8 @@ import {
   Price,
   Rating,
 } from "@/components/search/filterComponents";
-import { getTotalProductByCategory } from "@/lib/actions/products";
 
 export default async function SearchFilters() {
-
   return (
     <div>
       <h3 className="text-lg font-semibold">Filters</h3>
