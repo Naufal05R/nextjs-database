@@ -28,23 +28,6 @@ export async function getTotalReviewByCategory(category: string) {
   }
 }
 
-export async function getTotalSportsReview() {
-  try {
-    const totalReview = await prisma.review.count({
-      where: {
-        product: {
-          category: "sports",
-        },
-      },
-    });
-
-    return totalReview;
-  } catch (error) {
-    console.error("Error getting total sports review: ");
-    throw new Error("Error getting total sports review");
-  }
-}
-
 export async function createReview(review: CreateReviewInput) {
   try {
     const newReview = await prisma.review.create({
