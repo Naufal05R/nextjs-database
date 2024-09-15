@@ -37,7 +37,13 @@ export const getProductById = cache(_getProductById, ["getProductById"], {
   revalidate: 60,
 });
 
-export async function getAllTotalProductsByCategory() {}
+export async function getAllTotalProductsByCategory() {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
 
 export async function getTotalProductByCategory(category: string) {
   try {
