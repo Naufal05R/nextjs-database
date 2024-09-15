@@ -33,6 +33,16 @@ export default function Category({ totalProducts }: CategoryProps) {
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="all">All</SelectItem>
+          {totalProducts.map(({ category, _count }) => (
+            <SelectItem
+              key={category}
+              sideValue={`${_count.category}`}
+              value={category}
+              className="capitalize"
+            >
+              {category}
+            </SelectItem>
+          ))}
         </SelectContent>
       </Select>
     </div>
