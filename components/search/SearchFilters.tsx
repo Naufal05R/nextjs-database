@@ -7,10 +7,6 @@ import {
 import { getTotalProductByCategory } from "@/lib/actions/products";
 
 export default async function SearchFilters() {
-  const totalElectronics = await getTotalProductByCategory("electronics");
-  const totalClothing = await getTotalProductByCategory("clothing");
-  const totalHome = await getTotalProductByCategory("home");
-  const totalSports = await getTotalProductByCategory("sports");
 
   return (
     <div>
